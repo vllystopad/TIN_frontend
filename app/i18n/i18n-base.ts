@@ -13,7 +13,7 @@ export const resources = {
   },
 } as const;
 
-const i18nbase = i18n.use(initReactI18next).init({
+i18n.use(initReactI18next).init({
   lng: "en",
   fallbackLng: "en",
   defaultNS,
@@ -21,6 +21,9 @@ const i18nbase = i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
+  react: {
+    useSuspense: false,
+  },
 });
 
-export default i18nbase;
+export default i18n;

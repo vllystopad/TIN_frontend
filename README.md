@@ -6,8 +6,8 @@ A modern Single Page Application (SPA) for a barber shop management system built
 
 - **[React Router v7](https://reactrouter.com/)** - Framework mode with SPA architecture ([SPA Mode Documentation](https://reactrouter.com/how-to/spa))
 - **React 19** - UI library
+- **[Material-UI (MUI)](https://mui.com/)** - React component library
 - **TypeScript** - Type safety
-- **TailwindCSS v4** - Styling
 - **i18next** - Internationalization (English & Russian)
 - **Vite** - Build tool and dev server
 - **Prettier** - Code formatting
@@ -15,10 +15,10 @@ A modern Single Page Application (SPA) for a barber shop management system built
 ## Features
 
 - ✨ Single Page Application (SPA) architecture
+- 🎨 Material-UI components with custom theming
 - 🌍 Multi-language support (English, Russian)
-- 🎨 Custom font (Indie Flower)
+- 🖋️ Custom font (Indie Flower)
 - 🔐 Authentication routes (Login, Registration)
-- 📱 Responsive design with TailwindCSS
 - ⚡️ Hot Module Replacement (HMR)
 - 🔒 TypeScript by default
 - 💅 Code formatting with Prettier
@@ -53,7 +53,7 @@ Start the development server with HMR:
 npm run dev
 ```
 
-Your application will be available at `http://localhost:3001`.
+Your application will be available at `http://localhost:3001` (or the port specified in `.env`).
 
 ### Code Formatting
 
@@ -87,19 +87,28 @@ npm run build
 
 The build output will be in the `build/client` directory.
 
+### Preview Production Build
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
 ## Project Structure
 
 ```
 app/
 ├── i18n/                 # Internationalization setup
 │   ├── locales/         # Translation files (en.json, ru.json)
-│   └── index.ts         # i18n configuration
+│   └── i18n-base.ts     # i18n configuration
 ├── routes/              # Application routes
 │   ├── dashboard.tsx    # Main dashboard (/)
 │   ├── login.tsx        # Login page (/login)
 │   └── registration.tsx # Registration page (/registration)
 ├── app.css              # Global styles
-├── root.tsx             # Root layout component
+├── root.tsx             # Root layout component with MUI ThemeProvider
+├── theme.ts             # Material-UI theme configuration
 └── routes.ts            # Route configuration
 
 scripts/
@@ -126,9 +135,9 @@ This project uses React Router v7 in SPA mode, which means:
 
 Learn more about [React Router SPA Mode](https://reactrouter.com/how-to/spa).
 
-## Building for Production
+## Deployment
 
-After running `npm run build`, the production-ready files will be in the `build/client` directory.
+After running `npm run build`, the production-ready static files will be in the `build/client` directory. You can serve these files with any static file server (nginx, Apache, etc.).
 
 ---
 
