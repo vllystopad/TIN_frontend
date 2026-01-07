@@ -6,9 +6,8 @@
     "dev": "node scripts/check-env.cjs && vite",
     "build": "node scripts/check-env.cjs && vite build",
     "preview": "vite preview",
-  "typecheck": "tsc",
+    "typecheck": "tsc",
     "format": "prettier --write \"app/**/*.{ts,tsx,js,jsx,json,css}\"",
-
     "format:check": "prettier --check \"app/**/*.{ts,tsx,js,jsx,json,css}\""
   },
   "dependencies": {
