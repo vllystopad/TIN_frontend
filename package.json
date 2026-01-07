@@ -1,37 +1,42 @@
 {
-  "name": "fr",
+  "name": "front",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/check-env.cjs && vite",
-    "build": "node scripts/check-env.cjs && vite build",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
-  "typecheck": "tsc",
-    "format": "prettier --write \"app/**/*.{ts,tsx,js,jsx,json,css}\"",
-
-    "format:check": "prettier --check \"app/**/*.{ts,tsx,js,jsx,json,css}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\""
   },
   "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "axios": "^1.7.9",
+    "@tanstack/react-query": "^5.90.16",
+    "zustand": "^5.0.9",
+    "react-router-dom": "^7.2.0",
+    "@mui/material": "^7.3.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.6",
-    "@mui/material": "^7.3.6",
-    "@react-router/node": "7.10.1",
-    "@react-router/serve": "7.10.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "isbot": "^5"
+    "notistack": "^3.0.1"
   },
   "devDependencies": {
-    "@react-router/dev": "7.10.1",
-    "@types/node": "^22",
-    "@types/react": "^19.2.7",
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "i18next": "^25.7.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
     "prettier": "^3.7.4",
-    "react-i18next": "^16.5.1",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.7",
-    "vite-tsconfig-paths": "^5.1.4"
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
   }
 }

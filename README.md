@@ -1,144 +1,73 @@
-# TIN Frontend - Barber Shop Application
+# React + TypeScript + Vite
 
-A modern Single Page Application (SPA) for a barber shop management system built with React Router v7.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tech Stack
+Currently, two official plugins are available:
 
-- **[React Router v7](https://reactrouter.com/)** - Framework mode with SPA architecture ([SPA Mode Documentation](https://reactrouter.com/how-to/spa))
-- **React 19** - UI library
-- **[Material-UI (MUI)](https://mui.com/)** - React component library
-- **TypeScript** - Type safety
-- **i18next** - Internationalization (English & Russian)
-- **Vite** - Build tool and dev server
-- **Prettier** - Code formatting
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## React Compiler
 
-- ✨ Single Page Application (SPA) architecture
-- 🎨 Material-UI components with custom theming
-- 🌍 Multi-language support (English, Russian)
-- 🖋️ Custom font (Indie Flower)
-- 🔐 Authentication routes (Login, Registration)
-- ⚡️ Hot Module Replacement (HMR)
-- 🔒 TypeScript by default
-- 💅 Code formatting with Prettier
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Getting Started
+## Expanding the ESLint configuration
 
-### Installation
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Install the dependencies:
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-```bash
-npm install
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-### Environment Configuration
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-The project uses environment variables for configuration. A `.env.example` file is provided with all required variables.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Copy `.env.example` to `.env` and adjust values as needed:
-
-```bash
-cp .env.example .env
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-**Note:** The environment configuration is automatically checked when running `dev` or `build` commands.
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:3001` (or the port specified in `.env`).
-
-### Code Formatting
-
-Format your code:
-
-```bash
-npm run format
-```
-
-Check code formatting:
-
-```bash
-npm run format:check
-```
-
-### Type Checking
-
-Run TypeScript type checking:
-
-```bash
-npm run typecheck
-```
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-The build output will be in the `build/client` directory.
-
-### Preview Production Build
-
-To preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-```
-app/
-├── i18n/                 # Internationalization setup
-│   ├── locales/         # Translation files (en.json, ru.json)
-│   └── i18n-base.ts     # i18n configuration
-├── routes/              # Application routes
-│   ├── dashboard.tsx    # Main dashboard (/)
-│   ├── login.tsx        # Login page (/login)
-│   └── registration.tsx # Registration page (/registration)
-├── app.css              # Global styles
-├── root.tsx             # Root layout component with MUI ThemeProvider
-├── theme.ts             # Material-UI theme configuration
-└── routes.ts            # Route configuration
-
-scripts/
-└── check-env.cjs        # Environment validation script
-
-.env.example             # Example environment variables
-.env                     # Your local environment variables (git-ignored)
-```
-
-## Available Routes
-
-- `/` - Dashboard (main page after login)
-- `/login` - Login page
-- `/registration` - Registration page
-
-## SPA Mode
-
-This project uses React Router v7 in SPA mode, which means:
-
-- Server-side rendering is disabled at runtime
-- The root route is pre-rendered at build time to generate `index.html`
-- All routing happens on the client side
-- Perfect for static hosting services
-
-Learn more about [React Router SPA Mode](https://reactrouter.com/how-to/spa).
-
-## Deployment
-
-After running `npm run build`, the production-ready static files will be in the `build/client` directory. You can serve these files with any static file server (nginx, Apache, etc.).
-
----
-
-Built with ❤️ using React Router v7
