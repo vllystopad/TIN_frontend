@@ -1,10 +1,12 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Container, Box, TextField, Button, Typography, Paper, Link } from "@mui/material";
 import { useRegister } from "../features/auth/api/authApi";
 
 export const RegistrationPage = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: "",
@@ -34,7 +36,7 @@ export const RegistrationPage = () => {
             <Box display="flex" flexDirection="column" justifyContent="center" minHeight="100vh" py={4}>
                 <Paper elevation={3} sx={{ p: 4 }}>
                     <Typography variant="h4" component="h1" gutterBottom align="center">
-                        Register
+                        {t("auth.register.title")}
                     </Typography>
 
 
@@ -44,7 +46,7 @@ export const RegistrationPage = () => {
                                 required
                                 fullWidth
                                 id="firstName"
-                                label="First Name"
+                                label={t("common.firstName")}
                                 name="firstName"
                                 autoComplete="given-name"
                                 autoFocus
@@ -56,7 +58,7 @@ export const RegistrationPage = () => {
                                 required
                                 fullWidth
                                 id="lastName"
-                                label="Last Name"
+                                label={t("common.lastName")}
                                 name="lastName"
                                 autoComplete="family-name"
                                 value={formData.lastName}
@@ -70,7 +72,7 @@ export const RegistrationPage = () => {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label={t("common.email")}
                             name="email"
                             autoComplete="email"
                             value={formData.email}
@@ -83,11 +85,11 @@ export const RegistrationPage = () => {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label={t("common.password")}
                             type="password"
                             id="password"
                             autoComplete="new-password"
-                            helperText="Minimum 6 characters"
+                            helperText={t("auth.register.passwordHelper")}
                             value={formData.password}
                             onChange={handleChange("password")}
                             disabled={registerMutation.isPending}
@@ -100,14 +102,14 @@ export const RegistrationPage = () => {
                             sx={{ mt: 3, mb: 2 }}
                             disabled={registerMutation.isPending}
                         >
-                            {registerMutation.isPending ? "Registering..." : "Register"}
+                            {registerMutation.isPending ? t("auth.register.registering") : t("common.register")}
                         </Button>
 
                         <Box textAlign="center">
                             <Typography variant="body2">
-                                Already have an account?{" "}
+                                {t("auth.register.alreadyHaveAccount")}{" "}
                                 <Link component={RouterLink} to="/login" underline="hover">
-                                    Login here
+                                    {t("auth.register.loginHere")}
                                 </Link>
                             </Typography>
                         </Box>

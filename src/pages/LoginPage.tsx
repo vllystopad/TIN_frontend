@@ -1,10 +1,12 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Container, Box, TextField, Button, Typography, Paper, Link } from "@mui/material";
 import { useLogin } from "../features/auth/api/authApi";
 
 export const LoginPage = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ export const LoginPage = () => {
             <Box display="flex" flexDirection="column" justifyContent="center" minHeight="100vh" py={4}>
                 <Paper elevation={3} sx={{ p: 4 }}>
                     <Typography variant="h4" component="h1" gutterBottom align="center">
-                        Login
+                        {t("auth.login.title")}
                     </Typography>
 
 
@@ -36,7 +38,7 @@ export const LoginPage = () => {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label={t("common.email")}
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -50,7 +52,7 @@ export const LoginPage = () => {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label={t("common.password")}
                             type="password"
                             id="password"
                             autoComplete="current-password"
@@ -66,14 +68,14 @@ export const LoginPage = () => {
                             sx={{ mt: 3, mb: 2 }}
                             disabled={loginMutation.isPending}
                         >
-                            {loginMutation.isPending ? "Logging in..." : "Login"}
+                            {loginMutation.isPending ? t("auth.login.loggingIn") : t("common.login")}
                         </Button>
 
                         <Box textAlign="center">
                             <Typography variant="body2">
-                                Don't have an account?{" "}
+                                {t("auth.login.dontHaveAccount")}{" "}
                                 <Link component={RouterLink} to="/register" underline="hover">
-                                    Register here
+                                    {t("auth.login.registerHere")}
                                 </Link>
                             </Typography>
                         </Box>

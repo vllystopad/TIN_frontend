@@ -1,7 +1,9 @@
 import { Container, Box, Typography, Paper } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { useMe } from "../features/auth/api/authApi";
 
 export const HomePage = () => {
+    const { t } = useTranslation();
     const { data: userData } = useMe();
 
     return (
@@ -9,15 +11,15 @@ export const HomePage = () => {
             <Box py={4}>
                 <Paper elevation={3} sx={{ p: 4 }}>
                     <Typography variant="h3" component="h1" gutterBottom>
-                        Welcome, {userData?.customer.firstName}!
+                        {t("home.welcome", { name: userData?.customer.firstName })}
                     </Typography>
 
                     <Typography variant="body1" paragraph>
-                        Email: {userData?.customer.email}
+                        {t("home.email", { email: userData?.customer.email })}
                     </Typography>
 
                     <Typography variant="body1" paragraph>
-                        Account Type: {userData?.customer.type}
+                        {t("home.accountType", { type: userData?.customer.type })}
                     </Typography>
                 </Paper>
             </Box>
