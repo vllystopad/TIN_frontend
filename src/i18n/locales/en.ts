@@ -11,6 +11,8 @@ export const en = {
         lastName: "Last Name",
         welcome: "Welcome",
         accountType: "Account Type",
+        back: "Back",
+        next: "Next",
     },
     auth: {
         login: {
@@ -39,6 +41,71 @@ export const en = {
         welcome: "Welcome, {{name}}!",
         email: "Email: {{email}}",
         accountType: "Account Type: {{type}}",
+        myAppointments: "My Appointments",
+        profile: "Profile",
+    },
+    appointments: {
+        newAppointment: "New Appointment",
+        createAppointment: "Create Appointment",
+        creating: "Creating...",
+        createFirst: "Create Your First Appointment",
+        noAppointments: "No appointments yet",
+        noAppointmentsDescription: "You haven't booked any appointments yet. Click the button below to get started!",
+        confirmDelete: "Are you sure you want to delete this appointment?",
+        services: "Services",
+        notes: "Notes",
+        total: "Total",
+        status: {
+            pending: "Pending",
+            confirmed: "Confirmed",
+            completed: "Completed",
+            cancelled: "Cancelled",
+        },
+        steps: {
+            selectBarberAndServices: "Select Barber & Services",
+            selectDateTime: "Select Date & Time",
+        },
+        stepOne: {
+            title: "Select Barber and Services",
+            description: "Choose your preferred barber and the services you'd like to book.",
+            selectBarber: "Select a Barber",
+            selectServices: "Select Services",
+        },
+    stepTwo: {
+      title: "Select Date and Time",
+      description: "Choose when you'd like your appointment.",
+      dateTime: "Date and Time",
+      date: "Date",
+      startTime: "Start Time",
+      endTime: "End Time",
+      calculatedAutomatically: "Calculated based on services duration",
+      notes: "Notes",
+      notesPlaceholder: "Add any special requests or notes for your barber...",
+    },
+        barber: {
+            experience: "{{years}} years experience",
+            servicesCount: "{{count}} services available",
+        },
+        service: {
+            duration: "{{minutes}} min",
+        },
+        summary: {
+            title: "Summary",
+            services: "Services",
+            duration: "Duration",
+            minutes: "minutes",
+            total: "Total",
+        },
+        errors: {
+            loadBarbers: "Failed to load barbers. Please try again.",
+            loadAppointments: "Failed to load appointments. Please try again.",
+        },
+        snackbar: {
+            createSuccess: "Appointment created successfully!",
+            createError: "Failed to create appointment. Please try again.",
+            deleteSuccess: "Appointment deleted successfully",
+            deleteError: "Failed to delete appointment",
+        },
     },
 };
 

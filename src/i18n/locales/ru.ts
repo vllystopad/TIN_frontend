@@ -11,6 +11,8 @@ export const ru = {
         lastName: "Фамилия",
         welcome: "Добро пожаловать",
         accountType: "Тип аккаунта",
+        back: "Назад",
+        next: "Далее",
     },
     auth: {
         login: {
@@ -39,6 +41,71 @@ export const ru = {
         welcome: "Добро пожаловать, {{name}}!",
         email: "Email: {{email}}",
         accountType: "Тип аккаунта: {{type}}",
+        myAppointments: "Мои записи",
+        profile: "Профиль",
+    },
+    appointments: {
+        newAppointment: "Новая запись",
+        createAppointment: "Создать запись",
+        creating: "Создание...",
+        createFirst: "Создать первую запись",
+        noAppointments: "Записей пока нет",
+        noAppointmentsDescription: "У вас еще нет записей. Нажмите кнопку ниже, чтобы начать!",
+        confirmDelete: "Вы уверены, что хотите удалить эту запись?",
+        services: "Услуги",
+        notes: "Заметки",
+        total: "Итого",
+        status: {
+            pending: "Ожидает",
+            confirmed: "Подтверждено",
+            completed: "Завершено",
+            cancelled: "Отменено",
+        },
+        steps: {
+            selectBarberAndServices: "Выбор барбера и услуг",
+            selectDateTime: "Выбор даты и времени",
+        },
+        stepOne: {
+            title: "Выберите барбера и услуги",
+            description: "Выберите предпочитаемого барбера и услуги, которые вы хотите забронировать.",
+            selectBarber: "Выберите барбера",
+            selectServices: "Выберите услуги",
+        },
+    stepTwo: {
+      title: "Выберите дату и время",
+      description: "Выберите, когда вы хотите записаться.",
+      dateTime: "Дата и время",
+      date: "Дата",
+      startTime: "Время начала",
+      endTime: "Время окончания",
+      calculatedAutomatically: "Рассчитывается на основе длительности услуг",
+      notes: "Заметки",
+      notesPlaceholder: "Добавьте любые особые пожелания или заметки для вашего барбера...",
+    },
+        barber: {
+            experience: "{{years}} лет опыта",
+            servicesCount: "{{count}} услуг доступно",
+        },
+        service: {
+            duration: "{{minutes}} мин",
+        },
+        summary: {
+            title: "Итого",
+            services: "Услуги",
+            duration: "Длительность",
+            minutes: "минут",
+            total: "Всего",
+        },
+        errors: {
+            loadBarbers: "Не удалось загрузить барберов. Попробуйте снова.",
+            loadAppointments: "Не удалось загрузить записи. Попробуйте снова.",
+        },
+        snackbar: {
+            createSuccess: "Запись успешно создана!",
+            createError: "Не удалось создать запись. Попробуйте снова.",
+            deleteSuccess: "Запись успешно удалена",
+            deleteError: "Не удалось удалить запись",
+        },
     },
 };
 

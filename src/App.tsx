@@ -10,6 +10,7 @@ import { AuthGuard } from "./features/auth/components/AuthGuard";
 import { LoginPage } from "./pages/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { HomePage } from "./pages/HomePage";
+import { CreateAppointmentPage } from "./pages/CreateAppointmentPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -66,6 +67,14 @@ function App() {
                   element={
                     <AuthGuard>
                       <HomePage />
+                    </AuthGuard>
+                  }
+                />
+                <Route
+                  path="/appointments/new"
+                  element={
+                    <AuthGuard>
+                      <CreateAppointmentPage />
                     </AuthGuard>
                   }
                 />
